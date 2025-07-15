@@ -25,8 +25,10 @@ export default function App() {
     queryKey: ['movies', query, page],
     queryFn: () => fetchMovies(query, page),
     enabled: !!query,
-    staleTime: 1000 * 60 * 5
+    staleTime: 1000 * 60 * 5,
+    placeholderData: (previousData) => previousData
   });
+  
 
   // Show toast when no movies found
   useEffect(() => {
@@ -74,3 +76,4 @@ export default function App() {
     </>
   );
 }
+
